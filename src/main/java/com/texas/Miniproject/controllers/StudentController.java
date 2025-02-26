@@ -18,11 +18,6 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "Hello Texas";
-    }
-
     @GetMapping
     public List<Student> listStudent(){
         return studentService.listAllStudent();
