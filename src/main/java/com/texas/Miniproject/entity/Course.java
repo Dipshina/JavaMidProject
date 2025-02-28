@@ -1,11 +1,13 @@
 package com.texas.Miniproject.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,6 +25,14 @@ public class Course {
     private Integer credit;
 
     @ManyToOne
-    private Department department;
+    private Department departmentId;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "enrollment_id")
+    private List<Enrollment> enrollments;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "class_id")
+    private List<Class> classes;
 
 }

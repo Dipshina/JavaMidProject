@@ -1,4 +1,30 @@
 package com.texas.Miniproject.entity;
 
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Getter
+@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "class")
+
 public class Class {
+    @Id
+    @SequenceGenerator(name = "class_sequence", sequenceName = "class_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "class_sequence")
+    private Long id;
+    private String semester;
+    private Integer years;
+    private String schedule;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id", referencedColumnName = "id")
+    private Course course;
+
+    @ManyToOne
+    @JoinColumn(name = "instructor_id", referencedColumnName = "id")
+    private Instructor instructor;
 }
