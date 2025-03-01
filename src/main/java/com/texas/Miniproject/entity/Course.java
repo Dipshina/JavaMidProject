@@ -17,11 +17,8 @@ public class Course {
     @SequenceGenerator(name = "course_sequence", sequenceName = "course_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "course_sequence")
     private Long id;
-
     private String courseName;
-
     private String description;
-
     private Integer credit;
 
     @ManyToOne
@@ -32,7 +29,7 @@ public class Course {
     private List<Enrollment> enrollments;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "class_id")
-    private List<Class> classes;
+    @JoinColumn(name = "classes_id")
+    private List<Classes> classes;
 
 }

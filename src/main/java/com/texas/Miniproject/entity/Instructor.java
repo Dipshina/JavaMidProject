@@ -26,6 +26,6 @@ public class Instructor {
     private Department departmentId;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "class_id")
-    private List<Class> classes;
+    @JoinColumn(name = "classes_id")
+    private List<Classes> classes;
 }

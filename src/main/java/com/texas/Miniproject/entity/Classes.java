@@ -11,10 +11,10 @@ import lombok.*;
 @NoArgsConstructor
 @Table(name = "class")
 
-public class Class {
+public class Classes {
     @Id
-    @SequenceGenerator(name = "class_sequence", sequenceName = "class_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "class_sequence")
+    @SequenceGenerator(name = "classes_sequence", sequenceName = "classes_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "classes_sequence")
     private Long id;
     private String semester;
     private Integer years;
